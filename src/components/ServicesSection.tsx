@@ -16,6 +16,14 @@ const sectors = [
         title: 'Soluções em Tecnologia',
         description: 'Automação, sistemas internos e aplicações personalizadas para otimizar resultados.',
       }
+    ],
+    members: [
+      { name: "Ana Silva Almeida da costa serranhos", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Bruno Costa", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
+      { name: "Carla Mendes", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
+      { name: "Ana Silva", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Bruno Costa", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
+      { name: "Carla Mendes", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
     ]
   },
   {
@@ -28,6 +36,9 @@ const sectors = [
         title: 'Consultoria Empresarial',
         description: 'Diagnóstico organizacional completo, mapeamento de mercado e estratégias de vendas.',
       }
+    ],
+    members: [
+      { name: "Diego Ramos", role: "Designer UX", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=15" },
     ]
   },
   {
@@ -63,6 +74,16 @@ const sectors = [
     ]
   }
 ];
+
+function LinkedInIcon() {
+  return (
+    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
 
 const ServicesSection = () => {
   return (
@@ -115,7 +136,41 @@ const ServicesSection = () => {
                   </div>
                 ))}
               </div>
-
+              
+              {/* Integrantes especificos desse setor */}
+              {sector.members != null && ( 
+                <div className="px-8 pb-8">
+                  <hr className="border-gray-100 mb-6" />
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#6b6b8a] mb-4">Integrantes</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {sector.members.map((m, index) =>(
+                      <div
+                        key={index}
+                        className="flex flex-col items-center text-center gap-2.5 border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow"
+                      >
+                        <img
+                          src={m.avatar}
+                          alt={m.name}
+                          className="w-14 h-14 rounded-full object-cover ring-2 ring-[#eaeaf2]"
+                        />
+                        <div>
+                          <p className="text-[#1a1340] font-semibold text-sm leading-tight">{m.name}</p>
+                          <p className="text-[#6b6b8a] text-xs mt-0.5">{m.role}</p>
+                        </div>
+                        <a
+                          href={m.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-xs font-medium text-[#e5433e] hover:text-[#c93934] transition-colors mt-auto"
+                        >
+                          <LinkedInIcon />
+                          Ver perfil
+                        </a>
+                      </div>
+                    ))}
+                  </div>  
+                </div>
+              )}
             </div>
           ))}
         </div>
