@@ -16,7 +16,7 @@ const CTASection = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://wa.me/5531996701752"
+            href="https://wa.me/5531988491266"
             target="_blank"
             rel="noopener noreferrer"
             className="gradient-cta px-10 py-4 rounded-xl text-accent-foreground font-bold text-lg hover:opacity-90 transition-opacity"
