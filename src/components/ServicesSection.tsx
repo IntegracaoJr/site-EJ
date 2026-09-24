@@ -18,12 +18,12 @@ const sectors = [
       }
     ],
     members: [
-      { name: "Ana Silva Almeida da costa serranhos", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Bruno Costa", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
-      { name: "Carla Mendes", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
-      { name: "Ana Silva", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Bruno Costa", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
-      { name: "Carla Mendes", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
+      { name: "Ana Silva Almeida da costa serranhos", curso: "ads",role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Bruno Costa", curso: "ads", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
+      { name: "Carla Mendes", curso: "ads",role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
+      { name: "Ana Silva", curso: "SI", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Bruno Costa", curso: "ads",role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
+      { name: "Carla Mendes", curso: "ads", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
     ]
   },
   {
@@ -38,7 +38,7 @@ const sectors = [
       }
     ],
     members: [
-      { name: "Diego Ramos", role: "Designer UX", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=15" },
+      { name: "Diego Ramos", curso: "Psicologia", role: "Designer UX", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=15" },
     ]
   },
   {
@@ -155,7 +155,8 @@ const ServicesSection = () => {
                         />
                         <div>
                           <p className="text-[#1a1340] font-semibold text-sm leading-tight">{m.name}</p>
-                          <p className="text-[#6b6b8a] text-xs mt-0.5">{m.role}</p>
+                          <p className="text-[#6b6b10a] text-xs mt-0.7">{m.curso}</p>
+                          <p className="text-[#6b6b8a] text-xs mt-0.7">{m.role}</p>
                         </div>
                         <a
                           href={m.link}
