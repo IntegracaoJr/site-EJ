@@ -91,6 +91,7 @@ const sectors = [
       }
     ],
     members: [
+      { name: "Ana Luiza Santos da Silva", curso: "Psicologia", role: "Diretora" , link: "https://www.linkedin.com/in/ana-luiza-silva-4212bb351", avatar: "https://i.pravatar.cc/150?img=47"}
       { name: "Maria Eduarda Cota França", curso: "Administração", role: "Assistente Administrativo", link: "https://linkedin.com/in/maria-eduarda-5a5657388", avatar: "https://i.pravatar.cc/150?img=47" },
     ]
   }
