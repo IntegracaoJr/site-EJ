@@ -5,7 +5,6 @@ import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
-import GaleryCarousel from '@/components/GaleryCaroussel';
 import SelectionProcessSection from '@/components/SelectionProcessSection';
 
 const Index = () => {
@@ -15,7 +14,6 @@ const Index = () => {
       <HeroScrollAnimation />
       <AboutSection />
       <ServicesSection />
-      <GaleryCarousel />
       <ProjectsSection />
       <SelectionProcessSection />
       <CTASection />
