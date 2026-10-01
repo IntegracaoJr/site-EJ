@@ -1,7 +1,20 @@
-import { Globe, BarChart3, Megaphone, Users, CheckCircle2 } from 'lucide-react';
+import { Globe, BarChart3, Megaphone, Users, CheckCircle2 , User} from 'lucide-react';
+
 
 // Nova estrutura de dados dividida estritamente pelos setores da EJ
 const sectors = [
+  {
+    id: 'diretoria',
+    name: 'Diretoria Executiva',
+    icon: User,
+    description: 'Gestão estratégica e administrativa da empresa júnior.',
+    services: [
+    ],
+    members: [
+      { name: "Noemi Santos de Oliveira", curso: "ADS", role: "Presidente", link: "https://linkedin.com/in/noemi-santoss", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Renato Pereira Rodrigues Júnior", curso: "Administração", role: "Vice Presidente", link: "https://linkedin.com/in/renato-junior-aa383a227", avatar: "https://i.pravatar.cc/150?img=47" },
+    ]
+  },
   {
     id: 'projetos',
     name: 'Projetos & TI',
@@ -18,32 +31,18 @@ const sectors = [
       }
     ],
     members: [
-      { name: "Ana Silva Almeida da costa serranhos", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Bruno Costa", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
-      { name: "Carla Mendes", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
-      { name: "Ana Silva", role: "Diretora de TI", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Bruno Costa", role: "Desenvolvedor Web", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=12" },
-      { name: "Carla Mendes", role: "Analista de Dados", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=32" },
-    ]
-  },
-  {
-    id: 'comercial',
-    name: 'Comercial',
-    icon: BarChart3,
-    description: 'Estruturação estratégica e inteligência de negócios.',
-    services: [
-      {
-        title: 'Consultoria Empresarial',
-        description: 'Diagnóstico organizacional completo, mapeamento de mercado e estratégias de vendas.',
-      }
-    ],
-    members: [
-      { name: "Diego Ramos", role: "Designer UX", link: "https://linkedin.com", avatar: "https://i.pravatar.cc/150?img=15" },
+      { name: "Gabriela Marques dos Santos Nascimento", curso: "SI", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/gabriela-marques-663a27209", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Leonardo Mendes Jorge Soares", curso: "ADS", role: "Auxiliar de Projetos", link: "https://www.linkedin.com/in/leonardo-mendes-jorge-soares-81899b39a", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Marcus Vinicius Andrade", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/marcus-vacosta", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Matheus Lucas Gonçalves de Carvalho Oliveira", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/matheus-l-oliveira", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Melissa Vitor da Silva", curso: "SI", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/melissavitor", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Ramon José de Assis Sales Carmo", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/ramonassis", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Yallison Régis Mercês", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/yallison", avatar: "https://i.pravatar.cc/150?img=47" },
     ]
   },
   {
     id: 'marketing',
-    name: 'Marketing',
+    name: 'Comunicação',
     icon: Megaphone,
     description: 'Posicionamento de marca e captação de clientes.',
     services: [
@@ -51,11 +50,15 @@ const sectors = [
         title: 'Marketing Digital',
         description: 'Estratégias de redes sociais, construção de identidade visual e campanhas de divulgação.',
       }
+    ],
+    members: [
+      { name: "Francielle Carolina de Sousa de Lima", curso: "Psicologia", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/francielle-carolina-lima-1b3027220", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Lucas Augusto Medeiros de Ramos", curso: "ADS", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/lucas-ramos-b7314822b", avatar: "https://i.pravatar.cc/150?img=47" },
     ]
   },
   {
     id: 'gp',
-    name: 'Gestão de Pessoas',
+    name: 'Gente e Gestão',
     icon: Users,
     description: 'Desenvolvimento profissional, posicionamento e preparação para o mercado.',
     services: [
@@ -71,6 +74,9 @@ const sectors = [
         title: 'Entrevista Simulada',
         description: 'Simulação prática conduzida por consultores, próxima à realidade dos processos seletivos. O cliente recebe feedback personalizado sobre comunicação, postura, organização de respostas e pontos de melhoria.',
       }
+    ],
+    members: [
+      { name: "Maria Eduarda Cota França", curso: "Administração", role: "Assistente Administrativo", link: "https://linkedin.com/in/maria-eduarda-5a5657388", avatar: "https://i.pravatar.cc/150?img=47" },
     ]
   }
 ];
@@ -155,7 +161,8 @@ const ServicesSection = () => {
                         />
                         <div>
                           <p className="text-[#1a1340] font-semibold text-sm leading-tight">{m.name}</p>
-                          <p className="text-[#6b6b8a] text-xs mt-0.5">{m.role}</p>
+                          <p className="text-[#6b6b10a] text-xs mt-0.7">{m.curso}</p>
+                          <p className="text-[#6b6b8a] text-xs mt-0.7">{m.role}</p>
                         </div>
                         <a
                           href={m.link}
