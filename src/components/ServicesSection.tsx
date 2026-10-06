@@ -1,9 +1,8 @@
 import { Globe, BarChart3, Megaphone, Users, CheckCircle2, User } from 'lucide-react';
 
-// Tipagem correta para o Vite carregar os módulos como strings (caminhos/URLs das imagens)
+// Função auxiliar para pegar a imagem dos integrantes
 const avatars = import.meta.glob<{ default: string }>('../assets/pessoal/*.{jpeg,jpg,png,webp}', { eager: true });
 
-// Função auxiliar para pegar a imagem com segurança no TypeScript
 const getAvatar = (filename: string) => {
   const path = `../assets/pessoal/${filename}`;
   const module = avatars[path];
@@ -157,8 +156,7 @@ const ServicesSection = () => {
               {/* Integrantes especificos desse setor */}
               {sector.members != null && (
                 <div className="px-8 pb-8">
-                  <hr className="border-gray-100 mb-6" />
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#6b6b8a] mb-4">Integrantes</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#6b6b8a] mb-4 mt-4">Integrantes</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {sector.members.map((m, index) => (
                       <div
