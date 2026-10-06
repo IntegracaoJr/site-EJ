@@ -1,4 +1,14 @@
-import { Globe, BarChart3, Megaphone, Users, CheckCircle2 , User} from 'lucide-react';
+import { Globe, BarChart3, Megaphone, Users, CheckCircle2, User } from 'lucide-react';
+
+// Tipagem correta para o Vite carregar os módulos como strings (caminhos/URLs das imagens)
+const avatars = import.meta.glob<{ default: string }>('../assets/pessoal/*.{jpeg,jpg,png,webp}', { eager: true });
+
+// Função auxiliar para pegar a imagem com segurança no TypeScript
+const getAvatar = (filename: string) => {
+  const path = `../assets/pessoal/${filename}`;
+  const module = avatars[path];
+  return module ? module.default : '';
+};
 
 
 // Nova estrutura de dados dividida estritamente pelos setores da EJ
@@ -11,8 +21,8 @@ const sectors = [
     services: [
     ],
     members: [
-      { name: "Noemi Santos de Oliveira", curso: "ADS", role: "Presidente", link: "https://linkedin.com/in/noemi-santoss", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Renato Pereira Rodrigues Júnior", curso: "Administração", role: "Vice Presidente", link: "https://linkedin.com/in/renato-junior-aa383a227", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Noemi Santos de Oliveira", curso: "ADS", role: "Presidente", link: "https://linkedin.com/in/noemi-santoss", avatar: getAvatar('noemi.jpeg') },
+      { name: "Renato Pereira Rodrigues Júnior", curso: "Administração", role: "Vice Presidente", link: "https://linkedin.com/in/renato-junior-aa383a227", avatar: getAvatar('renato.jpeg') },
     ]
   },
   {
@@ -31,13 +41,13 @@ const sectors = [
       }
     ],
     members: [
-      { name: "Gabriela Marques dos Santos Nascimento", curso: "SI", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/gabriela-marques-663a27209", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Leonardo Mendes Jorge Soares", curso: "ADS", role: "Auxiliar de Projetos", link: "https://www.linkedin.com/in/leonardo-mendes-jorge-soares-81899b39a", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Marcus Vinicius Andrade", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/marcus-vacosta", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Matheus Lucas Gonçalves de Carvalho Oliveira", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/matheus-l-oliveira", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Melissa Vitor da Silva", curso: "SI", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/melissavitor", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Ramon José de Assis Sales Carmo", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/ramonassis", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Yallison Régis Mercês", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/yallison", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Gabriela Marques dos Santos Nascimento", curso: "SI", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/gabriela-marques-663a27209", avatar: getAvatar('gabriela.jpeg') },
+      { name: "Leonardo Mendes Jorge Soares", curso: "ADS", role: "Auxiliar de Projetos", link: "https://www.linkedin.com/in/leonardo-mendes-jorge-soares-81899b39a", avatar: getAvatar('leonardo.jpeg') },
+      { name: "Marcus Vinicius Andrade", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/marcus-vacosta", avatar: getAvatar('marcus.jpeg') },
+      { name: "Matheus Lucas Gonçalves de Carvalho Oliveira", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/matheus-l-oliveira", avatar: getAvatar('matheus.jpeg') },
+      { name: "Melissa Vitor da Silva", curso: "SI", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/melissavitor", avatar: getAvatar('melissa.jpeg') },
+      { name: "Ramon José de Assis Sales Carmo", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/ramonassis", avatar: getAvatar('ramon.jpeg') },
+      { name: "Yallison Régis Mercês", curso: "ADS", role: "Auxiliar de Projetos", link: "https://linkedin.com/in/yallison", avatar: getAvatar('yallison.jpeg') },
     ]
   },
   {
@@ -52,8 +62,9 @@ const sectors = [
       }
     ],
     members: [
-      { name: "Francielle Carolina de Sousa de Lima", curso: "Psicologia", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/francielle-carolina-lima-1b3027220", avatar: "https://i.pravatar.cc/150?img=47" },
-      { name: "Lucas Augusto Medeiros de Ramos", curso: "ADS", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/lucas-ramos-b7314822b", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Francielle Carolina de Sousa de Lima", curso: "Psicologia", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/francielle-carolina-lima-1b3027220", avatar: getAvatar('francielle.jpeg') },
+      { name: "Lucas Augusto Medeiros de Ramos", curso: "ADS", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/lucas-ramos-b7314822b", avatar: getAvatar('lucas.jpeg') },
+      { name: "Julia Leite Silva", curso: "ADS", role: "Auxiliar de Marketing", link: "https://linkedin.com/in/julia-leite-silva-a3a793226", avatar: getAvatar('julia.jpeg') },
     ]
   },
   {
@@ -76,7 +87,7 @@ const sectors = [
       }
     ],
     members: [
-      { name: "Maria Eduarda Cota França", curso: "Administração", role: "Assistente Administrativo", link: "https://linkedin.com/in/maria-eduarda-5a5657388", avatar: "https://i.pravatar.cc/150?img=47" },
+      { name: "Maria Eduarda Cota França", curso: "Administração", role: "Assistente Administrativo", link: "https://linkedin.com/in/maria-eduarda-5a5657388", avatar: getAvatar('mariaE.jpeg') },
     ]
   }
 ];
@@ -95,7 +106,7 @@ const ServicesSection = () => {
   return (
     <section id="servicos" className="py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-4">
-        
+
         {/* Cabeçalho principal */}
         <div className="text-center mb-20">
           <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">O que fazemos</p>
@@ -111,7 +122,7 @@ const ServicesSection = () => {
         <div className="space-y-16">
           {sectors.map((sector) => (
             <div key={sector.id} className="bg-card p-8 md:p-10 rounded-2xl shadow-card border border-border/50">
-              
+
               {/* Header do Setor */}
               <div className="flex flex-col md:flex-row md:items-center gap-4 border-b border-border pb-6 mb-8">
                 <div className="w-14 h-14 rounded-xl gradient-hero flex items-center justify-center text-primary-foreground shrink-0 shadow-md">
@@ -126,8 +137,8 @@ const ServicesSection = () => {
               {/* Serviços específicos deste Setor */}
               <div className={`grid gap-6 ${sector.services.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                 {sector.services.map((service, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="bg-secondary/40 p-6 rounded-xl border border-border/30 hover:border-accent/40 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
@@ -142,14 +153,14 @@ const ServicesSection = () => {
                   </div>
                 ))}
               </div>
-              
+
               {/* Integrantes especificos desse setor */}
-              {sector.members != null && ( 
+              {sector.members != null && (
                 <div className="px-8 pb-8">
                   <hr className="border-gray-100 mb-6" />
                   <p className="text-xs font-semibold uppercase tracking-widest text-[#6b6b8a] mb-4">Integrantes</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {sector.members.map((m, index) =>(
+                    {sector.members.map((m, index) => (
                       <div
                         key={index}
                         className="flex flex-col items-center text-center gap-2.5 border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow"
@@ -175,7 +186,7 @@ const ServicesSection = () => {
                         </a>
                       </div>
                     ))}
-                  </div>  
+                  </div>
                 </div>
               )}
             </div>
