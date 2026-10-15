@@ -28,7 +28,7 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projetos" className="py-24 bg-background">
+    <section id="projetos" className="py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Portfólio</p>

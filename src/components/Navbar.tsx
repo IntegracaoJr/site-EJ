@@ -5,6 +5,7 @@ const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'Quem Somos', href: '#quem-somos' },
   { label: 'Serviços', href: '#servicos' },
+  { label: 'Galeria', href: '#galery' },
   { label: 'Projetos', href: '#projetos' },
   { label: 'Faça Parte', href: '#faca-parte'},
   { label: 'Contato', href: '#contato' },
