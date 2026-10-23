@@ -1,4 +1,40 @@
-const SelectionProcessSection = () => {
+
+interface Edital{
+  "semestre": string,
+  "descricao": string,
+  "link": string,
+  "status": string
+  "tipo": string
+}
+
+const editais:Edital[] = [
+  {
+    "semestre": "2026/1",
+    "descricao": "Consulte o edital do processo seletivo anterior da EJ PUC Minas Barreiro.",
+    "link": "https://drive.google.com/file/d/12-SCCpQ9NzM__BGsQnpJx7jw2UBGzyPA/view?usp=sharing",
+    "status": "fechado",
+    "tipo" : "edital"
+  },
+  {
+    "semestre": "2026/2",
+    "descricao": "Confira o edital, os requisitos e todas as informações para participar do processo seletivo da EJ PUC Minas Barreiro.",
+    "link": "https://drive.google.com/file/d/12-SCCpQ9NzM__BGsQnpJx7jw2UBGzyPA/view?usp=sharing",
+    "status": "fechado",
+    "tipo" : "edital"
+  },
+  {
+    "semestre": "2026/2",
+    "descricao": "Processo simplificado. Acesse o formulário de inscrição e candita-se na EJ da PUC Minas Barreiro",
+    "link": "https://forms.gle/LjRK6TJDmmahsAj68",
+    "status": "aberto",
+    "tipo" : "formulario"
+  }
+
+]
+
+function SelectionProcessSection(){
+
+
   return (
     <section
       id="faca-parte"
@@ -25,77 +61,43 @@ const SelectionProcessSection = () => {
 
         {/* Editais */}
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
-          {/* EDITAL ATUAL */}
-          <div className="bg-background border border-border rounded-2xl p-8 shadow-sm flex flex-col">
-            <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-5">
-                Encerrado
-              </span>
 
-              <h3 className="text-2xl font-bold text-primary mb-3">
-                Processo Seletivo 2026/2
-              </h3>
 
-              <p className="text-muted-foreground leading-relaxed">
-                Confira o edital, os requisitos e todas as informações para
-                participar do processo seletivo da EJ PUC Minas Barreiro.
-              </p>
-            </div>
+          {
+            (editais ?? []).map((edital:Edital) =>{
+              return(
+                <div className="bg-background border border-border rounded-2xl p-8 shadow-sm flex flex-col">
+                  <div>
+                    <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-5">
+                      {edital.status}
+                    </span>
 
-            {/* Botões */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-8">
-              <a
-                href="https://drive.google.com/file/d/12-SCCpQ9NzM__BGsQnpJx7jw2UBGzyPA/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gradient-cta flex-1 px-6 py-3 rounded-xl text-accent-foreground font-bold text-center hover:opacity-90 transition-opacity"
-              >
-                Ver edital
-              </a>
+                    <h3 className="text-2xl font-bold text-primary mb-3">
+                      Processo Seletivo {edital.semestre}
+                    </h3>
 
-              {/* 
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSd8NS1ewnxAXmAMJLPILqegQolqg_y_NIWtGdY10Ua6CI22HA/formResponse?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaeMbIZT88p62v8WO4gEB0gJb6c6IVfwiLLuGbCVX6qqbtGRTj8JM2DGcNUcXg_aem_tkzTfSS7H6XkKCrlrxioEw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 border-2 border-primary/20 px-6 py-3 rounded-xl text-primary font-bold text-center hover:bg-primary/5 transition-colors"
-              >
-                Inscreva-se
-              </a>
-              */}
-            </div>
-          </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {edital.descricao}
+                    </p>
+                  </div>
 
-          {/* EDITAL ANTERIOR */}
-          <div className="bg-background border border-border rounded-2xl p-8 shadow-sm flex flex-col">
-            <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-5">
-                Encerrado
-              </span>
+                  {/* Botão alinhado com os demais */}
+                  <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-8">
+                    <a
+                      href={edital.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="gradient-cta flex-1 px-6 py-3 rounded-xl text-accent-foreground font-bold text-center hover:opacity-90 transition-opacity"
+                    >
+                      Ver {edital.tipo}
+                    </a>
 
-              <h3 className="text-2xl font-bold text-primary mb-3">
-                Processo Seletivo 2026/1
-              </h3>
+                  </div>
+                </div>
+              )
+            })
+          }
 
-              <p className="text-muted-foreground leading-relaxed">
-                Consulte o edital do processo seletivo anterior da EJ PUC
-                Minas Barreiro.
-              </p>
-            </div>
-
-            {/* Botão alinhado com os demais */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-8">
-              <a
-                href="https://drive.google.com/file/d/12-SCCpQ9NzM__BGsQnpJx7jw2UBGzyPA/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gradient-cta flex-1 px-6 py-3 rounded-xl text-accent-foreground font-bold text-center hover:opacity-90 transition-opacity"
-              >
-                Ver edital
-              </a>
-
-            </div>
-          </div>
         </div>
       </div>
     </section>
